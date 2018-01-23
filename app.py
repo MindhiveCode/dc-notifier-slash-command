@@ -21,7 +21,7 @@ def poll_dash_central():
 @route('/votecheck', method="post")
 def gen_vote_count():
     vote_count_yes, vote_count_no, vote_count_abstain = poll_dash_central()
-    package = {"response_type": "in_channel", "text": "Yes Votes: {} \n No Votes: {} \n Abstain Votes: {}".format(vote_count_yes, vote_count_no, vote_count_abstain)}
+    package = {"response_type": "in_channel", "text": "*Yes Votes:* {} \n *No Votes:* {} \n *Abstain Votes:* {}".format(vote_count_yes, vote_count_no, vote_count_abstain)}
     response.content_type = 'application/json'
     return package
 
