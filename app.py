@@ -5,7 +5,7 @@ import json
 
 
 def poll_dash_central():
-    proposal_hash = 'ea1573f9cf32f83f3f35f1c8d6e7405dbd64a3ab26afb18019bd8ac5f551ac62'
+    proposal_hash = '4e2f9d85b393c40fd9ef5f24b85d1fcd01658500584f072dae223deb2cd8b842'
     url = "https://www.dashcentral.org/api/v1/proposal?hash={}".format(proposal_hash)
 
     data = requests.get(url)
