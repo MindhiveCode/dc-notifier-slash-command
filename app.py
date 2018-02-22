@@ -1,7 +1,8 @@
-from bottle import run,post,request,response,route
+from bottle import run, response,route
 import os
 import requests
 import json
+from extended_libs import airtable
 
 
 def poll_dash_central():
@@ -18,10 +19,16 @@ def poll_dash_central():
     return vote_count_yes, vote_count_no, vote_count_abstain
 
 
+@route('/votegraph', method="post")
+def gen_graph():
+    pass
+
+
 @route('/votecheck', method="post")
 def gen_vote_count():
-    vote_count_yes, vote_count_no, vote_count_abstain = poll_dash_central()
-    package = {"response_type": "in_channel", "text": "*Yes Votes:* {} \n *No Votes:* {} \n *Abstain Votes:* {}".format(vote_count_yes, vote_count_no, vote_count_abstain)}
+    vote_data, current_ratio = airtable.save_to_airtable()
+    clean_ratio = round(current_ratio,2)
+    package = {"response_type": "in_channel", "text": "*Yes Votes:* {} \n *No Votes:* {} \n *Abstain Votes:* {} \n *Current Ratio* {}".format(vote_data[0], vote_data[1], vote_data[2], clean_ratio)}
     response.content_type = 'application/json'
     return package
 
