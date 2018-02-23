@@ -4,7 +4,8 @@ import json
 from extended_libs import airtable
 from extended_libs import s3_integration as S3
 #from extended_libs import dash_plot
-from extended_libs import  dash_central
+from extended_libs import dash_central
+from extended_libs import zim_weather
 
 def generate_slack_message(graph_url):
     slack_attachment = []
@@ -43,6 +44,9 @@ def gen_proposal_data():
     proposal_data = dash_central.poll_dash_central()
     airtable.save_to_airtable(proposal_data)
 
+    weather_data = zim_weather.weather_check()
+    temp_f = zim_weather.kelvin_to_fahrenheit(weather_data['main']['temp'])
+
     package = {"response_type": "in_channel", "text":
         "*Yes Votes:* {} \n".format(proposal_data['yes']) +
         "*No Votes:* {} \n".format(proposal_data['no']) +
@@ -51,8 +55,9 @@ def gen_proposal_data():
         "*Votes Until Funding:* {} \n".format(proposal_data['remaining_yes_votes_until_funding']) +
         "*Number of Comments:* {} \n".format(proposal_data['comment_amount']) +
         "*Voting Deadline:* {} \n".format(proposal_data['voting_deadline_human']) +
-        "*Link:* {}".format(proposal_data['url'])
-
+        "*Link:* {}".format(proposal_data['url']) +
+        "\n \n" +
+        "*Zim Weather* - {}".format(temp_f)
                }
 
     response.content_type = 'application/json'
