@@ -19,3 +19,5 @@ def kelvin_to_fahrenheit(kelvin):
     temp_F = kelvin * (9 / 5) - 459.67
     temp_F = round(temp_F, 1)
     return temp_F
+
+print(weather_check()['weather'])
