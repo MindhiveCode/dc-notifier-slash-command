@@ -3,5 +3,4 @@ requests
 plotly
 boto3
 numpy
-matplotlib
 easyplot

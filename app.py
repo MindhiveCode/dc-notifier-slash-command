@@ -3,7 +3,7 @@ import os
 import json
 from extended_libs import airtable
 from extended_libs import s3_integration as S3
-from extended_libs import dash_plot
+#from extended_libs import dash_plot
 from extended_libs import  dash_central
 
 def generate_slack_message(graph_url):
