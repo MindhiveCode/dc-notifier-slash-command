@@ -46,7 +46,7 @@ def gen_proposal_data():
 
     weather_data = zim_weather.weather_check()
     temp_f = zim_weather.kelvin_to_fahrenheit(weather_data['main']['temp'])
-    weather_info = weather_data['weather']['main']
+    weather_info = weather_data['weather'][0]['main']
 
     package = {"response_type": "in_channel", "text":
         "*Yes Votes:* {} \n".format(proposal_data['yes']) +
@@ -58,7 +58,7 @@ def gen_proposal_data():
         "*Voting Deadline:* {} \n".format(proposal_data['voting_deadline_human']) +
         "*Link:* {}".format(proposal_data['url']) +
         "\n \n" +
-        "*Zim Weather* - {}, {}".format(weather_info, temp_f)
+        "*Zim Weather* - {}, {} Degrees F".format(weather_info, temp_f)
                }
 
     response.content_type = 'application/json'

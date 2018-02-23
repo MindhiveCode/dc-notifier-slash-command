@@ -20,4 +20,4 @@ def kelvin_to_fahrenheit(kelvin):
     temp_F = round(temp_F, 1)
     return temp_F
 
-print(weather_check()['weather'])
+print(weather_check()['weather'][0]['main'])
