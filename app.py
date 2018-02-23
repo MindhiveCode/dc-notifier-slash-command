@@ -47,11 +47,11 @@ def gen_proposal_data():
         "*Yes Votes:* {} \n".format(proposal_data['yes']) +
         "*No Votes:* {} \n".format(proposal_data['no']) +
         "*Abstain Votes:* {} \n ".format(proposal_data['abstain']) +
-        "*Current Ratio* {}/10% \n".format(proposal_data['current_ratio']) +
-        "*Votes Until Funding* {} \n".format(proposal_data['remaining_yes_votes_until_funding']) +
-        "*Number of Comments* {} \n".format(proposal_data['comment_amount']) +
-        "*Voting Deadline* {} \n".format(proposal_data['voting_deadline_human']) +
-        "*Link* {}".format(proposal_data['url'])
+        "*Current Ratio:* {}/10% \n".format(proposal_data['current_ratio']) +
+        "*Votes Until Funding:* {} \n".format(proposal_data['remaining_yes_votes_until_funding']) +
+        "*Number of Comments:* {} \n".format(proposal_data['comment_amount']) +
+        "*Voting Deadline:* {} \n".format(proposal_data['voting_deadline_human']) +
+        "*Link:* {}".format(proposal_data['url'])
 
                }
 
