@@ -58,7 +58,7 @@ def gen_proposal_data():
         "*Voting Deadline:* {} \n".format(proposal_data['voting_deadline_human']) +
         "*Link:* {}".format(proposal_data['url']) +
         "\n \n" +
-        "*Zim Weather* - {},{}".format(weather_info, temp_f)
+        "*Zim Weather* - {}, {}".format(weather_info, temp_f)
                }
 
     response.content_type = 'application/json'
