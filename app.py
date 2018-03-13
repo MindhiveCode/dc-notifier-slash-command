@@ -7,6 +7,7 @@ from extended_libs import s3_integration as S3
 from extended_libs import dash_central
 from extended_libs import zim_weather
 
+
 def generate_slack_message(graph_url):
     slack_attachment = []
     vote_data, current_ratio = airtable.save_to_airtable()
